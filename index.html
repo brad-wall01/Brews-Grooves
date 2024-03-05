@@ -6,16 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/materialize.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/resources/demos/style.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="valign-wrapper" style="min-height: 500px">
-
-        <h1>Hello World!</h1>
-    </div>
+    <main class="container">
+        <div id="banner">
+            <h1 class="white-text">Love beers? Music? Let's go!</h1>
+            
+        </div>
+        <div class="container" id="age-verify-container">
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="age-verify">Are you age 21 or over?</a>
+        </div>
+        <div class="container" id="searchbar-container">
+            <input class="center-align" type="text" placeholder="Enter City or Zip code!" id="searchbar">
+        </div>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Age verification</h4>
+                <p>Please note that this site is for use by adult audience only.</p>
+                <p>If you're under 21, the contents of the pages will not be shown.</p>
+                <p>Sorry for any inconvenience caused 🥲</p>
+                <h6>Are you 21 or over?</h6>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="decline">No, I'll come back later</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="approve">Yes, I'm 21</a>
+            </div>
+        </div>
+    </main>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>

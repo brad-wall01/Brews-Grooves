@@ -4,7 +4,80 @@
 }
 
 body {
-    background-image: url(../images/Brewery9.jpg);
+    background-image: url(../images/bg3.jpg);
     background-size: cover;
+    background-position:top
+}
+
+#banner {
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    margin-top: 10vh;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    h1 {
+        margin:2rem;
+        text-shadow: 7px 7px 7px rgb(27, 27, 27);
+        
+    }
+}
+
+.memeContainer {
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.container input {
+    color: white;
+}
+
+#age-verify-container, #searchbar-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#age-verify {
+    width: 500px;
+    min-height: 70px;
+    margin-top: 20%;
+    font-size: 2rem;
+    border-radius: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: none;
+}
+
+#searchbar {
+    width: 500px;
+    margin-top: 30%;
+    font-size: 2rem;
+    visibility: hidden;
+}
+
+.modal {
+    width: 600px;
+    background-color: #eeeeee ;
+
+    h4 {
+        text-align: center;
+    }
+
+    h6 {
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .modal-footer {
+        background-color: #e0e0e0 ;
+    }
 }
 
