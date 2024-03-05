@@ -1,0 +1,49 @@
+#searchbar {
+    width: 200px;
+    margin-top: 30%;
+    font-size: 2rem;
+    visibility: visible;
+}
+
+#searchbtn {
+    margin:20px;
+    visibility: visible;
+    justify-content: center;
+}
+
+nav {
+    background-color:transparent;
+    border-bottom: 3px solid white;
+    min-height: 100px;
+}
+
+#searchbar-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#searchbar {
+    margin: 10px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 18px
+}
+
+#searchbtn {
+    margin-right: 30px;
+}
+
+.brand-logo {
+    margin: 1rem;
+}
+
+#nav-mobile {
+    margin-top: 16px;
+
+    li {
+        a {
+        font-size: 20px;
+        }
+    }
+}
+
