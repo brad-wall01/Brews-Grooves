@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,10 @@
     <link rel="stylesheet" href="https://code.jquery.com/resources/demos/style.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/defaultResults.css">
+    <link rel="stylesheet" href="../css/beerMain.css">
     <title>Brews & Grooves</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -39,19 +42,107 @@
             <li><a href="./musicMain.html">Events</a></li>
             <li>
                 <form id="searchbar-container2">
-                    <input class="center-align" type="text" placeholder="Enter City or Zip code!"
-                                id="searchbar">
+                    <input class="center-align" type="text" placeholder="Enter City or Zip code!" id="searchbar">
                     <button class="waves-effect waves-light btn" id="searchbtn">Search</button>
                 </form>
             </li>
-          </ul>
+        </ul>
     </header>
-    
+
+    <main>
+        <div id="beer-all-content"> 
+            <div id="brew-main-header">
+                <h3>Events Nearby</h3>
+            </div>
+            <div id="brew-main-body">
+                <div id="selected-brewery">
+                    <div class="col s12 m4">
+                        <div class="col s12 m7">
+                            <h2 class="header">&nbsp;</h2>
+                            <div class="card horizontal">
+                              <div class="card-image">
+                                <img src="https://lorempixel.com/100/190/nature/6">
+                              </div>
+                              <div class="card-stacked">
+                                <div class="card-content">
+                                  <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                </div>
+                                <div class="card-action">
+                                  <a href="#">This is a link</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div id="events-nearby">
+                    <div class="col s12 m8">
+                    
+
+                        <div class="carousel">
+                            <a class="carousel-item" href="#one!">
+                                <div class="row" id="event-card">
+                                    <div class="col s12">
+                                        <div class="card blue-grey darken-1">
+                                            <div class="card-content white-text">
+                                                <span class="card-title">Card Title</span>
+                                                <p>I am a very simple card. I am good at containing small bits of information.
+                                                    I am convenient because I require little markup to use effectively.</p>
+                                            </div>
+                                            <div class="card-action">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a class="carousel-item" href="#two!">
+                                <div class="row" id="event-card">
+                                    <div class="col s12">
+                                        <div class="card blue-grey darken-1">
+                                            <div class="card-content white-text">
+                                                <span class="card-title">Card Title</span>
+                                                <p>I am a very simple card. I am good at containing small bits of information.
+                                                    I am convenient because I require little markup to use effectively.</p>
+                                            </div>
+                                            <div class="card-action">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a class="carousel-item" href="#three!">
+                                <div class="row" id="event-card">
+                                    <div class="col s12">
+                                        <div class="card blue-grey darken-1">
+                                            <div class="card-content white-text">
+                                                <span class="card-title">Card Title</span>
+                                                <p>I am a very simple card. I am good at containing small bits of information.
+                                                    I am convenient because I require little markup to use effectively.</p>
+                                            </div>
+                                            <div class="card-action">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>    
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="../js/materialize.js"></script>
     <script src="../js/splash.js"></script>
-    
+    <script src="../js/beerMain.js"></script>
+
 </body>
+
 </html>
