@@ -92,11 +92,3 @@ $('#searchbar-container').on('submit', function(event) {
 //   });
 
 
-// const attractionUrl = 'https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=IscikhVGdREr7vEQ81GjQtz6aABUHOfK'
-
-// fetch(attractionUrl).then(function(response) {
-//     return response.json();
-// })
-// .then(function(data) {
-//     console.log(data)
-// })
