@@ -47,3 +47,70 @@ nav {
     }
 }
 
+.collapsible.expandable {
+    color: white;
+
+    .collapsible-header{
+        background-color: transparent;
+        position: relative;
+    }
+
+}
+
+.collapsible-header {
+    font-size: 1.5rem;
+}
+
+#link-to-site {
+    position: absolute;
+    right: 1%;
+
+    i {
+        padding-left: 10px;
+    }
+}
+
+#brewery-info {
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    
+}
+
+.collapsible.expandable li:hover {
+    background-color: #26a69a;
+    transition: all 0.7s ease-in-out
+}
+
+#nav-mobile2 {
+    visibility: hidden;
+}
+
+
+#hamburger-menu {
+    a {
+        i{
+            margin-top: 1.2rem;
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+.sidenav {
+    background-color: rgba(83, 83, 83, 0.8);
+    li{
+
+        margin: 1rem 0;
+        a{
+            font-size: 1.5rem;
+            color:white
+        }
+
+        #searchbar-container2 {
+            margin-left: 1.2rem;
+        }
+
+        #searchbtn {
+            margin-top: 0;
+        }
+    }
+}

@@ -3,7 +3,9 @@ const declineAge = $('#decline')
 const backgroundBody = $('body')
 const searchValue = $('#searchbar')
 
-
+function redirectToResultPage() {
+    window.location= "./assets/html/defaultResults.html"
+}
 
 $(document).ready(function(){
 $('.modal').modal();
@@ -29,18 +31,35 @@ declineAge.on('click', function(){
     document.body.style.backgroundImage = "url(./assets/images/underage.jpg)"
 })
 
-$('form').on('submit', function(event) {
+
+
+$('#searchbar-container').on('submit', function(event) {
     event.preventDefault()
 
-    console.log('hello')
     const saveSearch = searchValue.val() 
+    const regexNumber = /^[0-9]+$/;
+    // A blank space is intended after a-zA-Z to include space between city names
+    const regexString = /^[a-zA-Z ]+$/;    
+    if (saveSearch.match(regexString) && saveSearch !== 'Please enter a valid city or zip') {
+        localStorage.setItem('savedSearchBrewery', saveSearch)
+        localStorage.setItem('savedSearchEvent', saveSearch)
+        localStorage.setItem('savedSearchZip', '')
+        redirectToResultPage()
+    } else if (saveSearch.match(regexNumber)) {
+        localStorage.setItem('savedSearchZip', saveSearch)
+        localStorage.setItem('savedSearchBrewery', '')
+        localStorage.setItem('savedSearchEvent', '')
+        redirectToResultPage()
+    } else {
+        searchValue.val('Please enter a valid city or zip')
+    }
+
+
+    // redirect()
     
-    localStorage.setItem('savedSearchBrewery', saveSearch)
-    localStorage.setItem('savedSearchEvent', saveSearch)
-
-    window.location= "./assets/html/defaultResults.html"
-
 } )
+
+
 
 
 
@@ -54,23 +73,23 @@ $('form').on('submit', function(event) {
 //     console.log(data)
 // })
 
-const city = 'san+diego' 
+// const city = 'san+diego' 
 
-$.ajax({
-    type:"GET",
-    url:`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=${city}&sort=date,asc&apikey=IscikhVGdREr7vEQ81GjQtz6aABUHOfK`,
-    async:true,
-    dataType: "json",
-    success: function(json) {
-                console.log(json);
+// $.ajax({
+//     type:"GET",
+//     url:`https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=${city}&sort=date,asc&apikey=IscikhVGdREr7vEQ81GjQtz6aABUHOfK`,
+//     async:true,
+//     dataType: "json",
+//     success: function(json) {
+//                 console.log(json);
                 
-                // Parse the response.
-                // Do other things.
-             },
-    error: function(xhr, status, err) {
-                // This time, we do not end up here!
-             }
-  });
+//                 // Parse the response.
+//                 // Do other things.
+//              },
+//     error: function(xhr, status, err) {
+//                 // This time, we do not end up here!
+//              }
+//   });
 
 
 // const attractionUrl = 'https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=IscikhVGdREr7vEQ81GjQtz6aABUHOfK'
