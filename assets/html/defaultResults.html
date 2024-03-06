@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/resources/demos/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/defaultResults.css">
+    <title>Brews & Grooves</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Brews & Grooves</a>
+                <div id="hamburger-menu">
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                </div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="./mapReults.html">Map</a></li>
+                    <li><a href="./beerMain.html">Brewery</a></li>
+                    <li><a href="./musicMain.html">Events</a></li>
+                    <li>
+                        <form id="searchbar-container2">
+                            <input class="center-align" type="text" placeholder="Enter City or Zip code!"
+                                id="searchbar">
+                            <button class="waves-effect waves-light btn" id="searchbtn">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="./mapReults.html">Map</a></li>
+            <li><a href="./beerMain.html">Brewery</a></li>
+            <li><a href="./musicMain.html">Events</a></li>
+            <li>
+                <form id="searchbar-container2">
+                    <input class="center-align" type="text" placeholder="Enter City or Zip code!"
+                                id="searchbar">
+                    <button class="waves-effect waves-light btn" id="searchbtn">Search</button>
+                </form>
+            </li>
+          </ul>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col s12 m12 l6">
+                <h3 class="white-text">Brewery search results</h3>
+                <ul class="collapsible expandable" id="brewery-search-list">
+                    <!-- <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>Sample
+                            <div id="link-to-site"><i class="material-icons">near_me</i></div>
+                        </div>
+                        <div class="collapsible-body">
+                            <p id="brewery-info">Brewery Name</p>
+                            <p id="brewery-info">Address is 29380 Constan</p>
+                            <p id="brewery-info">949023982</p>
+
+                        </div>
+                    </li> -->
+                   
+                </ul>
+            </div>
+            <div class="col s12 m12 l6">
+                <h3 class="white-text">Event search results</h3>
+                <ul class="collapsible expandable" id="event-search-list">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">event</i>Sample 1</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">event</i>Sample 2</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">event</i>Sample 3</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../js/materialize.js"></script>
+    <script src="../js/splash.js"></script>
+    <script src="../js/defaultResults.js"></script>
+</body>
+
+</html>

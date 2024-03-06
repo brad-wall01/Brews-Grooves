@@ -1,0 +1,23 @@
+#brew-main-header {
+    text-align: center; color: white;
+}
+
+#event-card {
+    width: 400px;
+}
+
+#beer-all-content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+
+#brew-main-body {
+    flex-direction: row;
+    display: flex;
+}
+
+#events-nearby {
+    width: 100%; */
+}
