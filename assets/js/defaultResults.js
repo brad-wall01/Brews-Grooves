@@ -57,9 +57,9 @@ function getGeocodeData() {
         lon = data.results[0].geometry.location.lng
         localStorage.setItem('searchedCityLatitude', lat)
         localStorage.setItem('searchedCityLongitude', lon)
+        getBreweryData()
     })
 
-    getBreweryData()
 }
 
 // function to reformat the string for phone number into more readable format.
