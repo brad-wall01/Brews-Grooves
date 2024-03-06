@@ -74,6 +74,21 @@ function reformatPhone(num) {
     }
 }
 
+function loadBreweryList() {
+    const savedBreweryList = JSON.parse(localStorage.getItem(`searchedBreweryList`))
+    return savedBreweryList
+}
+
+function saveBreweryList(list) {
+    const savedBreweryList = JSON.parse(localStorage.getItem())
+    return savedBreweryList
+}
+
+
+let breweryListData = JSON.
+
+
+
 function getBreweryData() {
 
     const lat = localStorage.getItem('searchedCityLatitude')
@@ -86,13 +101,18 @@ function getBreweryData() {
         return response.json();
     })
     .then(function(data) {
-        console.log(data)
-        console.log(data[1].name);
-        console.log(data[1].address_1);
-        console.log(typeof data[1].phone);
-        console.log(data[1].website_url);
-        console.log(data[1].city);
+        localStorage.setItem(`searchedBreweryList`, ``)
         for (let i = 0; i < data.length; i++) {
+            
+            let breweryListData = {
+                breweryId: crypto.randomUUID(),
+                breweryName: data[i].name,
+                breweryAddress: data[i].address_1,
+                breweryCity: data[i].city,
+                breweryPhone: data[i].phone,
+                breweryWebsite: data[i].website_url,
+            }
+
             const li = $('<li>')
 
             const headerDiv = $('<div>')
