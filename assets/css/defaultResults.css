@@ -114,3 +114,9 @@ nav {
         }
     }
 }
+
+#event-search-list {
+    .collapsible-header {
+        padding-right: 4rem;
+    }
+}

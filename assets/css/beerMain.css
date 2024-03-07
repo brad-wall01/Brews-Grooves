@@ -1,23 +1,41 @@
 #brew-main-header {
-    text-align: center; color: white;
+    text-align: center; 
+    color: white;
+}
+
+#brew-main-body {
+    color: white;
+    
+}
+.card.horizontal {
+    background-color: rgba(121, 121, 121, 0.4);
+    border-radius: 15px;
+}
+
+#selected-brewery-name {
+    margin-top: 5rem;
 }
 
 #event-card {
-    width: 400px;
+    width: 500px;
 }
 
 #beer-all-content {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
     margin: auto;
-}
-
-#brew-main-body {
-    flex-direction: row;
-    display: flex;
 }
 
 #events-nearby {
     width: 100%; */
 }
+
+#content-width {
+    width: 100%;
+}
+
+#event-card span {
+    font-size: 1.6rem;
+}
+
