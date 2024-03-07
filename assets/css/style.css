@@ -65,7 +65,7 @@ body {
 
 #searchbar {
     width: 500px;
-    margin-top: 30%;
+    margin-top: 10rem;
     font-size: 2rem;
     visibility: hidden;
 }
@@ -94,3 +94,10 @@ body {
     }
 }
 
+
+@media  screen and (min-width:1921px) {
+    #searchbar {
+        margin-top: 15rem;
+    }
+    
+}

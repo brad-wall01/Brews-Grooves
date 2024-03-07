@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://code.jquery.com/resources/demos/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Madimi+One&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/defaultResults.css">
     <link rel="stylesheet" href="../css/beerMain.css">
@@ -18,13 +21,13 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Brews & Grooves</a>
+                <a href="../../index.html" class="brand-logo">Brews & Grooves</a>
                 <div id="hamburger-menu">
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 </div>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="./mapReults.html">Map</a></li>
-                    <li><a href="./beerMain.html">Brewery</a></li>
+                    <li><a href="./defaultResults.html">Main</a></li>
+                    <li><a href="./mapResults.html">Map</a></li>
                     <li><a href="./musicMain.html">Events</a></li>
                     <li>
                         <form id="searchbar-container2">
@@ -37,8 +40,8 @@
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="./mapReults.html">Map</a></li>
-            <li><a href="./beerMain.html">Brewery</a></li>
+            <li><a href="./defaultResults.html">Main</a></li>
+            <li><a href="./mapResults.html">Map</a></li>
             <li><a href="./musicMain.html">Events</a></li>
             <li>
                 <form id="searchbar-container2">
@@ -50,98 +53,121 @@
     </header>
 
     <main>
-        <div id="beer-all-content"> 
-            <div id="brew-main-header">
-                <h3>Events Nearby</h3>
-            </div>
-            <div id="brew-main-body">
-                <div id="selected-brewery">
-                    <div class="col s12 m4">
-                        <div class="col s12 m7">
-                            <h2 class="header">&nbsp;</h2>
-                            <div class="card horizontal">
-                              <div class="card-image">
-                                <img src="https://lorempixel.com/100/190/nature/6">
-                              </div>
-                              <div class="card-stacked">
-                                <div class="card-content">
-                                  <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                  <a href="#">This is a link</a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
+        <div id="beer-all-content">
+            <div class="row" id="content-width">
+                <div class="col s12" id="brew-main-header">
+                    <h3>Events Nearby</h3>
                 </div>
-                <div id="events-nearby">
-                    <div class="col s12 m8">
-                    
-
-                        <div class="carousel">
-                            <a class="carousel-item" href="#one!">
-                                <div class="row" id="event-card">
-                                    <div class="col s12">
-                                        <div class="card blue-grey darken-1">
-                                            <div class="card-content white-text">
-                                                <span class="card-title">Card Title</span>
-                                                <p>I am a very simple card. I am good at containing small bits of information.
-                                                    I am convenient because I require little markup to use effectively.</p>
-                                            </div>
-                                            <div class="card-action">
-                                            </div>
+                <div class="col s12" id="brew-main-body">
+                    <div class="row">
+                        <!-- Brewery Info -->
+                        <div class="col s4">
+                            <div>
+                                <button class="btn waves-effect waves-light" type="submit" name="action" id="back-to-default-result-page">
+                                    <i class="material-icons left">keyboard_arrow_left</i>Back
+                                  </button>
+                                <h4 class="header" id="selected-brewery-name">Horizontal Card</h4>
+                                <div class="card horizontal">
+                                    <div class="card-stacked">
+                                        <div class="card-content">
+                                            <p id="selected-brewery-address">Placeholder</p>
+                                            <p id="selected-brewery-phone"></p>
+                                            <p id="selected-brewery-website"></p>
+                                        </div>
+                                        <div class="card-action">
+                                        <a href="#" id="selected-brewery-website-link">Link to website</a>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+                        </div>
 
-                            <a class="carousel-item" href="#two!">
-                                <div class="row" id="event-card">
-                                    <div class="col s12">
-                                        <div class="card blue-grey darken-1">
-                                            <div class="card-content white-text">
-                                                <span class="card-title">Card Title</span>
-                                                <p>I am a very simple card. I am good at containing small bits of information.
-                                                    I am convenient because I require little markup to use effectively.</p>
-                                            </div>
-                                            <div class="card-action">
-                                            </div>
+                        <!-- Events carousel  -->
+                        <div class="col s8">
+                            <div class="carousel" id="event-card-list">
+                                <div class="carousel-item" id="event-card">
+                                    <div class="card blue-grey darken-1">
+                                        <div class="card-content white-text">
+                                            <span class="card-title" id="event-card-title0">Card Title</span>
+                                            <p id="event-card-address0">placeholder</p>
+                                            <p id="event-card-venue0">placeholder</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a href="#" id="event-card-promoter-link0" target="_blank">This is a link</a>
+                                            <a href="#" id="event-card-ticketmaster-link0" target="_blank">This is a link</a>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-
-                            <a class="carousel-item" href="#three!">
-                                <div class="row" id="event-card">
-                                    <div class="col s12">
-                                        <div class="card blue-grey darken-1">
-                                            <div class="card-content white-text">
-                                                <span class="card-title">Card Title</span>
-                                                <p>I am a very simple card. I am good at containing small bits of information.
-                                                    I am convenient because I require little markup to use effectively.</p>
-                                            </div>
-                                            <div class="card-action">
-                                            </div>
+                                <div class="carousel-item" id="event-card">
+                                    <div class="card blue-grey darken-1">
+                                        <div class="card-content white-text">
+                                            <span class="card-title" id="event-card-title1">Card Title</span>
+                                            <p id="event-card-address1">placeholder</p>
+                                            <p id="event-card-venue1">placeholder</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a href="#" id="event-card-promoter-link1" target="_blank">This is a link</a>
+                                            <a href="#" id="event-card-ticketmaster-link1" target="_blank">This is a link</a>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                                <div class="carousel-item" id="event-card">
+                                    <div class="card blue-grey darken-1">
+                                        <div class="card-content white-text">
+                                            <span class="card-title" id="event-card-title2">Card Title</span>
+                                            <p id="event-card-address2">placeholder</p>
+                                            <p id="event-card-venue2">placeholder</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a href="#" id="event-card-promoter-link2" target="_blank">This is a link</a>
+                                            <a href="#" id="event-card-ticketmaster-link2" target="_blank">This is a link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" id="event-card">
+                                    <div class="card blue-grey darken-1">
+                                        <div class="card-content white-text">
+                                            <span class="card-title" id="event-card-title3">Card Title</span>
+                                            <p id="event-card-address3">placeholder</p>
+                                            <p id="event-card-venue3">placeholder</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a href="#" id="event-card-promoter-link3" target="_blank">This is a link</a>
+                                            <a href="#" id="event-card-ticketmaster-link3" target="_blank">This is a link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item" id="event-card">
+                                    <div class="card blue-grey darken-1">
+                                        <div class="card-content white-text">
+                                            <span class="card-title" id="event-card-title4">Card Title</span>
+                                            <p id="event-card-address4">placeholder</p>
+                                            <p id="event-card-venue4">placeholder</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <a href="#" id="event-card-promoter-link4" target="_blank">This is a link</a>
+                                            <a href="#" id="event-card-ticketmaster-link4" target="_blank">This is a link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            
+            
 
                         </div>
                     </div>
                 </div>
             </div>
-
-
-        </div>    
+        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="../js/beerMain.js"></script>
     <script src="../js/materialize.js"></script>
     <script src="../js/splash.js"></script>
-    <script src="../js/beerMain.js"></script>
 
 </body>
 
