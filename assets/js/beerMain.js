@@ -1,4 +1,4 @@
-const cardContainer = $('#card-container')
+// const cardContainer = $('#card-container')
 
 function reformatPhone(num) {
     
