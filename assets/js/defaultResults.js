@@ -1,4 +1,5 @@
 const selectSpecificBrewery = $('#brewery-search-list')
+const selectSpecificEvent = $('#event-search-list')
 
 
 // this function is not needed/used for now as we're searching by distance using latitude / longitude
@@ -292,6 +293,12 @@ function mouseClickValue(event) {
     window.location = 'beerMain.html'
 }
 
+function mouseClickValueForEvent(event) {
+    const mousePointer = event.target.id
+    console.log(mousePointer);
+    localStorage.setItem('targetEventToLoad', mousePointer)
+    window.location = 'musicMain.html'
+}
 
 
 // initial page load runs below function which also runs the brewery/event search API calls.
@@ -344,4 +351,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 selectSpecificBrewery.on('click', '.redirect-btn' , mouseClickValue)
+
+selectSpecificEvent.on('click', '.redirect-btn' , mouseClickValueForEvent)
 
