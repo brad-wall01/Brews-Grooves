@@ -40,6 +40,11 @@ SO THAT I can combine my favorite social activities into a single convenient sch
 ![Screenshot of carousel function](./assets/images/screenshot-carouselfunction.png)
     
 
+## Deployment
+
+[Click to deployed page](https://brad-wall01.github.io/Brews-Grooves/)
+
+
 ## Credits
 
 Special thanks to:
