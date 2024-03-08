@@ -94,7 +94,7 @@ function newEventSearch() {
             console.log(addEventListData);
             $(`#event-card-title${[i]}`).text(`${addEventListData.eventName} - ${addEventListData.eventDate}`)
             $(`#event-card-address${[i]}`).text(`${addEventListData.eventAddress}, ${addEventListData.eventCity}`)
-            $(`#event-card-venue${[i]}`).text(`${addEventListData.eventLocationName}`)
+            $(`#event-card-venue${[i]}`).text(`Venue: ${addEventListData.eventLocationName}`)
             $(`#event-card-promoter-link${[i]}`).attr('href', addEventListData.eventPromotorUrl)
             $(`#event-card-promoter-link${[i]}`).text(`Link to Promoter Website`)
             $(`#event-card-ticketmaster-link${[i]}`).attr('href', addEventListData.eventTicketMasterUrL)
