@@ -216,24 +216,10 @@ $('#searchbar-container2').on('submit', function(event) {
 
 } )
 
-
-
-
-
-
-
-
-
 $('#back-to-default-result-page').on('click', function() {
     console.log('hello');
     window.location = 'defaultResults.html'
 })
-
-
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const elems = document.querySelectorAll('.carousel');

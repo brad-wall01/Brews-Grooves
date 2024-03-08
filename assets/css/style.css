@@ -94,6 +94,33 @@ body {
     }
 }
 
+.page-footer {
+    background-color: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.5) ;
+}
+
+.footer-copyright {
+    background-color: rgba(54, 54, 54, 0.5);
+}
+
+
+#manatee-joke {
+    position: absolute;
+    right: 0;
+    bottom: 5rem;
+    overflow: visible;
+    background-color: rgba(102, 102, 102, 0.7);
+
+}
+
+#manatee-joke-punchline {
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    background-color: rgba(180, 180, 180, 0.8);
+}
+
 
 @media  screen and (min-width:1921px) {
     #searchbar {
