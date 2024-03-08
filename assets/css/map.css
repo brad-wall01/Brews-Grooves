@@ -9,5 +9,47 @@ body {
 
 #map {
   height: 600px;
-  width: 600px;
+  width: 100%;
+  box-shadow: 7px 7px 7px rgb(41, 41, 41);
+  border: 2px solid rgba(128, 128, 128, 0.7)
+}
+
+#header {
+  color: white;
+  text-align: center  ;
+}
+
+.collection h4 {
+  color: white;
+  border-bottom: 1px solid white;
+  margin-bottom: 0;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
+#opacity {
+  color: #ffffff;
+  background-color: rgba(90, 90, 90, 0.6);
+}
+
+#opacity:hover {
+  background-color: rgba(90,90,90,0.3);
+  transition: all 0.4s ease-in-out;
+}
+
+#pin-icon-brew {
+  color: #EA4335;
+  font-size: 2.3rem;
+  margin-left: 2rem;
+}
+
+#pin-icon-event {
+  color: #1B9CFC;
+  font-size: 2.3rem;
+  margin-left: 2rem;
+}
+
+#map-footer {
+  position: relative;
+  bottom: 0;
 }

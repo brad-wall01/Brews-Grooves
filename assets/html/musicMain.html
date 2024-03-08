@@ -32,8 +32,8 @@
                     <li><a href="./beerMain.html">Brewery</a></li>
                     <li>
                         <form id="searchbar-container2">
-                            <input class="center-align" type="text" placeholder="Enter City or Zip code!"
-                                id="searchbar">
+                            <input class="center-align tooltipped" type="text" placeholder="Enter City or Zip code!"
+                                id="searchbar" data-position="bottom" data-tooltip="Searching by zip code may not show all events in the city">
                             <button class="waves-effect waves-light btn" id="searchbtn">Search</button>
                         </form>
                     </li>
@@ -115,6 +115,34 @@
             </div>
         </div>
     </main>
+
+    <footer class="page-footer" id="music-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Brewed & Grooved</h5>
+              <p class="grey-text text-lighten-4">"The bad news is time flies. The good news is you're the pilot." - Michael Altshuler</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <div class="fixed-action-btn" id="close-joke">
+                    <a class="btn-floating btn-large red" id="close-joke-anchor">
+                      <i class="large material-icons">chat_bubble_outline</i>
+                    </a>
+                    <ul class="jokes">
+                      <li><a class="waves-effect waves-light btn" id="manatee-joke"></a></li>
+                      <li><a class="waves-effect waves-light btn" id="manatee-joke-punchline">punchline</a></li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2024 Eric Lee / David Salter / Bradley William
+          <a class="grey-text text-lighten-4 right" href="https://github.com/brad-wall01/Brews-Grooves" target="_blank">Github Repo</a>
+          </div>
+        </div>
+      </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

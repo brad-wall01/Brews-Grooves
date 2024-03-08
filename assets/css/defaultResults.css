@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
 #searchbar {
     width: 200px;
     margin-top: 30%;
@@ -119,4 +129,18 @@ nav {
     .collapsible-header {
         padding-right: 4rem;
     }
+}
+
+#default-footer {
+    position: relative;
+    bottom: 0;
+    /* height: 186px; */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+
+
+.push {
+    /* height: 186px; */
 }

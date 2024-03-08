@@ -206,81 +206,86 @@ function getEventData() {
     })
     .then(function(data) {
         console.log(data)
-        console.log(data._embedded.events[0].name);
-        console.log(data._embedded.events[0].dates.start.localDate);
-        console.log(data._embedded.events[0].url); //promoter website page
-        console.log(data._embedded.events[0]._embedded.venues[0].address);
-        console.log(data._embedded.events[0]._embedded.venues[0].city);
-        console.log(data._embedded.events[0]._embedded.venues[0].name);
-        console.log(data._embedded.events[0]._embedded.venues[0].url);
-        console.log(data._embedded.events[0]._embedded.venues[0].location.latitude);
-        console.log(data._embedded.events[0]._embedded.venues[0].location.longitude);
+        // console.log(data._embedded.events[0].name);
+        // console.log(data._embedded.events[0].dates.start.localDate);
+        // console.log(data._embedded.events[0].url); //promoter website page
+        // console.log(data._embedded.events[0]._embedded.venues[0].address);
+        // console.log(data._embedded.events[0]._embedded.venues[0].city);
+        // console.log(data._embedded.events[0]._embedded.venues[0].name);
+        // console.log(data._embedded.events[0]._embedded.venues[0].url);
+        // console.log(data._embedded.events[0]._embedded.venues[0].location.latitude);
+        // console.log(data._embedded.events[0]._embedded.venues[0].location.longitude);
         localStorage.setItem('searchedEventList', '')
-        for (let i = 0; i < data._embedded.events.length; i++) {
+        console.log(data._embedded);
+        if (data._embedded != null) {
+            for (let i = 0; i < data._embedded.events.length; i++) {
 
-            let addEventListData = {
-                eventId: crypto.randomUUID(),
-                eventName: data._embedded.events[i].name,
-                eventDate: data._embedded.events[i].dates.start.localDate,
-                eventAddress: data._embedded.events[i]._embedded.venues[0].address.line1,
-                eventCity: data._embedded.events[i]._embedded.venues[0].city.name,
-                eventLocationName: data._embedded.events[i]._embedded.venues[0].name,
-                eventTicketMasterUrL: data._embedded.events[i]._embedded.venues[0].url,
-                eventPromotorUrl: data._embedded.events[i].url,
-                eventLat: data._embedded.events[i]._embedded.venues[0].location.latitude,
-                eventLon: data._embedded.events[i]._embedded.venues[0].location.longitude
-            }
+                let addEventListData = {
+                    eventId: crypto.randomUUID(),
+                    eventName: data._embedded.events[i].name,
+                    eventDate: data._embedded.events[i].dates.start.localDate,
+                    eventAddress: data._embedded.events[i]._embedded.venues[0].address.line1,
+                    eventCity: data._embedded.events[i]._embedded.venues[0].city.name,
+                    eventLocationName: data._embedded.events[i]._embedded.venues[0].name,
+                    eventTicketMasterUrL: data._embedded.events[i]._embedded.venues[0].url,
+                    eventPromotorUrl: data._embedded.events[i].url,
+                    eventLat: data._embedded.events[i]._embedded.venues[0].location.latitude,
+                    eventLon: data._embedded.events[i]._embedded.venues[0].location.longitude
+                }
 
-            const li = $('<li>')
+                const li = $('<li>')
+                    
+                const headerDiv = $('<div>')
+                headerDiv.addClass('collapsible-header')
                 
-            const headerDiv = $('<div>')
-            headerDiv.addClass('collapsible-header')
-            
-            headerDiv.html(`<i class="material-icons">event</i>${addEventListData.eventName}, (${addEventListData.eventDate})`)
-            
-            const linkToSite = $('<div>')
-            linkToSite.attr('id','link-to-site')
-            linkToSite.html(`<i class="material-icons">near_me</i>`)
-            // linkToSite.children('i').attr('id','redirect-btn')
-            linkToSite.children('i').addClass('redirect-btn')
-            linkToSite.children('i').attr('id', `${addEventListData.eventId}`)
+                headerDiv.html(`<i class="material-icons">event</i>${addEventListData.eventName}, (${addEventListData.eventDate})`)
+                
+                const linkToSite = $('<div>')
+                linkToSite.attr('id','link-to-site')
+                linkToSite.html(`<i class="material-icons">near_me</i>`)
+                // linkToSite.children('i').attr('id','redirect-btn')
+                linkToSite.children('i').addClass('redirect-btn')
+                linkToSite.children('i').attr('id', `${addEventListData.eventId}`)
 
-            const bodyDiv = $('<div>')
-            bodyDiv.addClass('collapsible-body')
+                const bodyDiv = $('<div>')
+                bodyDiv.addClass('collapsible-body')
 
-            const eventAddress = $('<p>')
-            eventAddress.attr('id','event-info')
-            eventAddress.text(`${addEventListData.eventAddress}, ${addEventListData.eventCity}`)
-            
-            const eventVenueName = $('<p>')
-            eventVenueName.attr('id', 'event-info')
-            // let eventVenueNameReformat = reformatPhone(data[i].phone)
-            eventVenueName.text(`Venue: ${addEventListData.eventLocationName}`)
+                const eventAddress = $('<p>')
+                eventAddress.attr('id','event-info')
+                eventAddress.text(`${addEventListData.eventAddress}, ${addEventListData.eventCity}`)
+                
+                const eventVenueName = $('<p>')
+                eventVenueName.attr('id', 'event-info')
+                // let eventVenueNameReformat = reformatPhone(data[i].phone)
+                eventVenueName.text(`Venue: ${addEventListData.eventLocationName}`)
 
-            const eventWebsite = $('<p>')
-            eventWebsite.attr('id','event-info')
-            eventWebsite.html(`<a href="${addEventListData.eventPromotorUrl}" target="_blank" style="color:white; text-decoration: underline">Promotor's Website</a>`)
+                const eventWebsite = $('<p>')
+                eventWebsite.attr('id','event-info')
+                eventWebsite.html(`<a href="${addEventListData.eventPromotorUrl}" target="_blank" style="color:white; text-decoration: underline">Promotor's Website</a>`)
 
-            const eventTicketmasterWebsite = $('<p>')
-            eventTicketmasterWebsite.attr('id', 'event-info')
-            eventTicketmasterWebsite.html(`<a href="${addEventListData.eventTicketMasterUrL}" target="_blank" style="color:white; text-decoration: underline">Ticketmaster Website</a>`)
+                const eventTicketmasterWebsite = $('<p>')
+                eventTicketmasterWebsite.attr('id', 'event-info')
+                eventTicketmasterWebsite.html(`<a href="${addEventListData.eventTicketMasterUrL}" target="_blank" style="color:white; text-decoration: underline">Ticketmaster Website</a>`)
 
-            
-            $('#event-search-list').append(li)
-            li.append(headerDiv)
-            headerDiv.append(linkToSite)
-            li.append(bodyDiv)
-            bodyDiv.append(eventAddress)
-            bodyDiv.append(eventVenueName)
-            bodyDiv.append(eventWebsite)
-            bodyDiv.append(eventTicketmasterWebsite)
+                
+                $('#event-search-list').append(li)
+                li.append(headerDiv)
+                headerDiv.append(linkToSite)
+                li.append(bodyDiv)
+                bodyDiv.append(eventAddress)
+                bodyDiv.append(eventVenueName)
+                bodyDiv.append(eventWebsite)
+                bodyDiv.append(eventTicketmasterWebsite)
 
-            saveEventList(addEventListData)
+                saveEventList(addEventListData)
 
+            }
+            localStorage.setItem('searchedEventList', JSON.stringify(eventData))
         }
 
-        localStorage.setItem('searchedEventList', JSON.stringify(eventData))
     })
+
+
 }
 
 

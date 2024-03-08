@@ -11,6 +11,25 @@ $(document).ready(function(){
 $('.modal').modal();
 });
 
+function generateManateeJoke() {
+    openApiUrl = 'https://manateejokesapi.herokuapp.com/manatees/random'
+    fetch(openApiUrl).then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(typeof data.setup);
+        $('#manatee-joke').html(convertStringToOneWord(data.setup))
+        $('#manatee-joke-punchline').html(convertStringToOneWord(data.punchline))
+    })
+}
+
+function convertStringToOneWord(string) {
+    const newString = string.replaceAll(' ', `&nbsp;`)
+    console.log(newString);
+    return newString
+}
+
+generateManateeJoke()
 
 approveAge.on('click', function(){
     $('#age-verify-container').empty()
@@ -19,8 +38,8 @@ approveAge.on('click', function(){
 })
 
 declineAge.on('click', function(){
-    console.log('hello')
     $('.container').empty()
+    $('footer').remove()
     $('.container').addClass('center-align')
     const memeContainer = $('<div>')
     memeContainer.addClass('memeContainer')
@@ -30,8 +49,6 @@ declineAge.on('click', function(){
     memeContainer.append(memeImage)
     document.body.style.backgroundImage = "url(./assets/images/underage.jpg)"
 })
-
-
 
 $('#searchbar-container').on('submit', function(event) {
     event.preventDefault()
@@ -53,14 +70,30 @@ $('#searchbar-container').on('submit', function(event) {
     } else {
         searchValue.val('Please enter a valid city or zip')
     }
-
-
-    // redirect()
     
 } )
 
+$(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton();
+  });
 
+$('.jokes').on('click', '#manatee-joke', function(){
+    $('#manatee-joke-punchline').attr('style', 'visibility: visible')
+})
 
+$('#close-joke').on('click', '#close-joke-anchor', function(){
+    if ($('#manatee-joke').attr('style')==='visibility: hidden') {
+        $('#manatee-joke').attr('style', 'visibility: visible')
+        $('#manatee-joke-punchline').attr('style', 'visibility: visible')    
+    } else {
+    $('#manatee-joke').attr('style', 'visibility: hidden')
+    $('#manatee-joke-punchline').attr('style', 'visibility: hidden')
+    }
+})
+
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
 
 
 

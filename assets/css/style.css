@@ -10,10 +10,14 @@
 
 
 body {
+    display: flex;
+    flex-direction: column;
     background-image: url(../images/bg3.jpg);
     background-size: cover;
-    background-position:top
+    background-position:top;
+    position: relative;
 }
+
 
 #banner {
     border: 3px solid rgba(255, 255, 255, 0.5);
@@ -92,6 +96,37 @@ body {
     .modal-footer {
         background-color: #e0e0e0 ;
     }
+}
+
+.page-footer {
+    background-color: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.5) ;
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+
+.footer-copyright {
+    background-color: rgba(54, 54, 54, 0.5);
+}
+
+
+#manatee-joke {
+    position: absolute;
+    right: 0;
+    bottom: 5rem;
+    overflow: visible;
+    background-color: rgba(102, 102, 102, 0.7);
+
+}
+
+#manatee-joke-punchline {
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    background-color: rgba(180, 180, 180, 0.8);
 }
 
 
