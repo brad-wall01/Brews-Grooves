@@ -63,10 +63,10 @@
                 </div>
                 <div class="col s12 m6">
                     <div class="collection" id="brewery-list-brief">
-                        <h4>Brewery List</h4>
+                        <h4>Brewery List<i class="material-icons" id="pin-icon-brew">location_on</i></h4>
                     </div>
                     <div class="collection" id="event-list-brief">
-                        <h4>Event List</h4>
+                        <h4>Event List<i class="material-icons" id="pin-icon-event">location_on</i></h4>
                     </div>
                 </div>
             </div>
@@ -75,6 +75,33 @@
         
     </main>
     
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Brewed & Grooved</h5>
+              <p class="grey-text text-lighten-4">"The bad news is time flies. The good news is you're the pilot." - Michael Altshuler</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <div class="fixed-action-btn" id="close-joke">
+                    <a class="btn-floating btn-large red" id="close-joke-anchor">
+                      <i class="large material-icons">chat_bubble_outline</i>
+                    </a>
+                    <ul class="jokes">
+                      <li><a class="waves-effect waves-light btn" id="manatee-joke"></a></li>
+                      <li><a class="waves-effect waves-light btn" id="manatee-joke-punchline">punchline</a></li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2024 Eric Lee / David Salter / Bradley William
+          <a class="grey-text text-lighten-4 right" href="#!">Github Repo</a>
+          </div>
+        </div>
+      </footer>
     
     
     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
@@ -84,6 +111,5 @@
     <script src="../js/materialize.js"></script>
     <script src="../js/mapResults.js"></script>
     <script src="../js/splash.js"></script>
-    <script src="../js/defaultResults.js"></script>
 </body>
 </html>
