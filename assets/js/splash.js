@@ -38,8 +38,8 @@ approveAge.on('click', function(){
 })
 
 declineAge.on('click', function(){
-    console.log('hello')
     $('.container').empty()
+    $('footer').remove()
     $('.container').addClass('center-align')
     const memeContainer = $('<div>')
     memeContainer.addClass('memeContainer')
@@ -90,6 +90,13 @@ $('#close-joke').on('click', '#close-joke-anchor', function(){
     $('#manatee-joke-punchline').attr('style', 'visibility: hidden')
     }
 })
+
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+
+
+
 // const musicEventUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city=san+diego&sort=date,asc&apikey=IscikhVGdREr7vEQ81GjQtz6aABUHOfK'
 
 // fetch(musicEventUrl).then(function(response) {

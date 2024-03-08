@@ -63,48 +63,51 @@ async function initMap() {
   
   // load Event markers
   let savedMarkersEvents = loadFromSavedListEvents()
+  if (savedMarkersEvents == null) {
+      // do nothing
+  } else {
   let markersEvents = savedMarkersEvents
 
-  for (let i = 0; i < markersEvents.length; i++) {
-    let position = new google.maps.LatLng(markersEvents[i][1], markersEvents[i][2])
-    const label = `${[i+1]}`
-    const contentString = 
-      '<div id="content">' +
-      `<h6 id="eventName">${markersEvents[i][0]} </h6>` +
-      `<p>${markersEvents[i][3]}</p>` +
-      `<p>Venue: ${markersEvents[i][4]}</p>` +
-      `<a href="${markersEvents[i][5]} target="_blank">Promoter's Website</a><br>` +
-      `<a href="${markersEvents[i][6]} target="_blank">Ticketmaster's Website</a>` +
-      `</div>`
-    const infowindow = new InfoWindow({
-      content: contentString,
-      ariaLabel: markersEvents[i][0]
-    })
-    const pinGlyph = new PinElement( {
-      glyph: label,
-      glyphColor: "white",
-      background: "#1B9CFC",
-      borderColor: "white"
-    })
-    const marker = new AdvancedMarkerElement({
-      position: position,
-      map,
-      title: markersEvents[i][0],
-      content: pinGlyph.element,
-    })
-
-    marker.addListener('click', () => {
-      infowindow.open({
-        anchor: marker,
-        map,
+    for (let i = 0; i < markersEvents.length; i++) {
+      let position = new google.maps.LatLng(markersEvents[i][1], markersEvents[i][2])
+      const label = `${[i+1]}`
+      const contentString = 
+        '<div id="content">' +
+        `<h6 id="eventName">${markersEvents[i][0]} </h6>` +
+        `<p>${markersEvents[i][3]}</p>` +
+        `<p>Venue: ${markersEvents[i][4]}</p>` +
+        `<a href="${markersEvents[i][5]} target="_blank">Promoter's Website</a><br>` +
+        `<a href="${markersEvents[i][6]} target="_blank">Ticketmaster's Website</a>` +
+        `</div>`
+      const infowindow = new InfoWindow({
+        content: contentString,
+        ariaLabel: markersEvents[i][0]
       })
-    })
+      const pinGlyph = new PinElement( {
+        glyph: label,
+        glyphColor: "white",
+        background: "#1B9CFC",
+        borderColor: "white"
+      })
+      const marker = new AdvancedMarkerElement({
+        position: position,
+        map,
+        title: markersEvents[i][0],
+        content: pinGlyph.element,
+      })
 
-    map.addListener('click', () => {
-      infowindow.close()
-    })
+      marker.addListener('click', () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+        })
+      })
+
+      map.addListener('click', () => {
+        infowindow.close()
+      })
+    }
   }
-
 
 }
 
@@ -115,27 +118,27 @@ function loadFromSavedListBrewery() {
     let markerListToAdd = [savedBreweryList[i].breweryName, Number(savedBreweryList[i].breweryLatitude), Number(savedBreweryList[i].breweryLongitude),
                       reformatPhone(savedBreweryList[i].breweryPhone), savedBreweryList[i].breweryAddress, savedBreweryList[i].breweryWebsite]
     markerList.push(markerListToAdd)
-
-    
   }
-  console.log(markerList);
   return markerList
 }
 
 function loadFromSavedListEvents() {
-  const savedEventList = JSON.parse(localStorage.getItem('searchedEventList'))
-  let markerList = []
-  for (let i = 0; i < savedEventList.length; i++) {
-    let markerListToAdd = [savedEventList[i].eventName, Number(savedEventList[i].eventLat), Number(savedEventList[i].eventLon), savedEventList[i].eventAddress,
-                      savedEventList[i].eventLocationName, savedEventList[i].eventPromotorUrl, savedEventList[i].eventTicketMasterUrL]
-    markerList.push(markerListToAdd)
+  const savedEventListRaw = localStorage.getItem('searchedEventList')
+  if (savedEventListRaw === '') {
+    
+  } else {
+    const savedEventList = JSON.parse(localStorage.getItem('searchedEventList'))
+    let markerList = []
+    for (let i = 0; i < savedEventList.length; i++) {
+      let markerListToAdd = [savedEventList[i].eventName, Number(savedEventList[i].eventLat), Number(savedEventList[i].eventLon), savedEventList[i].eventAddress,
+                        savedEventList[i].eventLocationName, savedEventList[i].eventPromotorUrl, savedEventList[i].eventTicketMasterUrL]
+      markerList.push(markerListToAdd)
+    }
+    return markerList
   }
-  // console.log(markerList);
-  return markerList
 }
 
 function reformatPhone(num) {
-    
   if (num === null) {
       // do nothing
   } else {
@@ -168,48 +171,58 @@ function renderLists() {
     breweryList.attr('href', savedBreweryUrl)
     breweryList.attr('id', 'opacity')
     breweryList.attr('target', '_blank')
-    breweryList.text(`${[i+1]}. ${savedBreweryList[i].breweryName} - Phone: ${savedBreweryPhone}`)
+    breweryList.text(`${[i+1]}. 🔗 ${savedBreweryList[i].breweryName} - Phone: ${savedBreweryPhone}`)
 
     $('#brewery-list-brief').append(breweryList)
     
   }
 
-  const savedEventList = JSON.parse(localStorage.getItem('searchedEventList'))
-  for (let i = 0; i < savedEventList.length; i++) {
-    let savedPromoterUrl = ''
-    if (savedEventList[i].eventPromotorUrl == null) {
-      savedPromoterUrl = ''
-    } else {
-      savedPromoterUrl = savedEventList[i].eventPromotorUrl
+  const savedEventListRaw = localStorage.getItem('searchedEventList')
+  console.log(savedEventListRaw);
+  // console.log(savedEventList);
+  if  (savedEventListRaw === '') {
+    const noResults = $('<h4>')
+    noResults.text(`No events`)
+    noResults.attr('style', 'color: white; text-align: left')
+    $('#event-list-brief').append(noResults)
+  } else {
+    const savedEventList = JSON.parse(localStorage.getItem('searchedEventList'))
+    for (let i = 0; i < savedEventList.length; i++) {
+      let savedPromoterUrl = ''
+      if (savedEventList[i].eventPromotorUrl == null) {
+        savedPromoterUrl = ''
+      } else {
+        savedPromoterUrl = savedEventList[i].eventPromotorUrl
+      }
+
+      let savedTicketmasterUrl = ''
+      if (savedEventList[i].eventTicketMasterUrL == null) {
+        savedTicketmasterUrl = ''
+      } else {
+        savedTicketmasterUrl = savedEventList[i].eventTicketMasterUrL
+      }
+
+      let finalUrl = ''
+      if (savedPromoterUrl === '' && savedTicketmasterUrl === '') {
+        finalUrl = ''
+      } else if (savedPromoterUrl !== '' && savedTicketmasterUrl === '') {
+        finalUrl = savedPromoterUrl
+      } else if (savedPromoterUrl === '' && savedTicketmasterUrl !== '') {
+        finalUrl = savedTicketmasterUrl
+      } else if (savedPromoterUrl !== '' && savedTicketmasterUrl !== '') {
+        finalUrl = savedPromoterUrl
+      }
+
+      const eventList = $('<a>')
+      eventList.addClass('collection-item')
+      eventList.attr('href', finalUrl)
+      eventList.attr('id', 'opacity')
+      eventList.attr('target', '_blank')
+      eventList.text(`${[i+1]}. 🔗 ${savedEventList[i].eventName} - Date: ${savedEventList[i].eventDate}`)
+
+      $('#event-list-brief').append(eventList)
+      
     }
-
-    let savedTicketmasterUrl = ''
-    if (savedEventList[i].eventTicketMasterUrL == null) {
-      savedTicketmasterUrl = ''
-    } else {
-      savedTicketmasterUrl = savedEventList[i].eventTicketMasterUrL
-    }
-
-    let finalUrl = ''
-    if (savedPromoterUrl === '' && savedTicketmasterUrl === '') {
-      finalUrl = ''
-    } else if (savedPromoterUrl !== '' && savedTicketmasterUrl === '') {
-      finalUrl = savedPromoterUrl
-    } else if (savedPromoterUrl === '' && savedTicketmasterUrl !== '') {
-      finalUrl = savedTicketmasterUrl
-    } else if (savedPromoterUrl !== '' && savedTicketmasterUrl !== '') {
-      finalUrl = savedPromoterUrl
-    }
-
-    const eventList = $('<a>')
-    eventList.addClass('collection-item')
-    eventList.attr('href', finalUrl)
-    eventList.attr('id', 'opacity')
-    eventList.attr('target', '_blank')
-    eventList.text(`${[i+1]}. ${savedEventList[i].eventName} - Date: ${savedEventList[i].eventDate}`)
-
-    $('#event-list-brief').append(eventList)
-    
   }
 
 }
