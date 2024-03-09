@@ -350,6 +350,37 @@ $('#searchbar-container2').on('submit', function(event) {
 
 } )
 
+$('.searchbar-side').on('submit', function(event) {
+    event.preventDefault()
+    const searchValue2 = $('#searchbar2')
+
+    breweryData= [];
+    $('#brewery-search-list').empty()
+    $('#event-search-list').empty()
+
+    const saveSearch = searchValue2.val() 
+    const regexNumber = /^[0-9]+$/;
+    // A blank space is intended after a-zA-Z to include space between city names
+    const regexString = /^[a-zA-Z ]+$/;    
+    if (saveSearch.match(regexString) && saveSearch !== 'Please enter a valid city or zip') {
+        localStorage.setItem('savedSearchBrewery', saveSearch)
+        localStorage.setItem('savedSearchEvent', saveSearch)
+        localStorage.setItem('savedSearchZip', '')
+        
+        getGeocodeData()
+        getEventData()
+    } else if (saveSearch.match(regexNumber)) {
+        localStorage.setItem('savedSearchZip', saveSearch)
+        localStorage.setItem('savedSearchBrewery', '')
+        localStorage.setItem('savedSearchEvent', '')
+        getGeocodeData()
+        getEventData()
+    } else {
+        searchValue2.val('Please enter a valid city or zip')
+    }
+
+} )
+
 document.addEventListener('DOMContentLoaded', function() {
     var sidenavfunction = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sidenavfunction);
