@@ -18,6 +18,7 @@
 
 #event-card {
     width: 500px;
+    word-wrap: break-word;
 }
 
 #beer-all-content {
@@ -26,6 +27,8 @@
     width: 70%;
     margin: auto;
 }
+
+
 
 #events-nearby {
     width: 100%;
@@ -38,4 +41,32 @@
 #event-card span {
     font-size: 1.6rem;
 }
+
+.card-stacked {
+    width: 100%;
+}
+
+.card-content  p {
+    word-wrap: break-word;
+}
+
+@media screen and (max-width: 1300px) {
+    #event-card {
+        width: 450px;
+    }
+    
+}
+
+@media screen and (max-width: 992px) {
+    #beer-all-content {
+        width: 90%
+    }
+
+   
+    #event-card {
+        /* width: 450px; */
+    }
+    
+}
+
 

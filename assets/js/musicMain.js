@@ -127,10 +127,10 @@ function newBrewerySearch() {
             }
 
             const breweryCard = $('<div>')
-            breweryCard.addClass('col s12 m8')
+            breweryCard.addClass('col s12 m12 l8 xl8')
             breweryCard.attr('id', 'brewery-card')
 
-            const breweryName = $('<h4>')
+            const breweryName = $('<h5>')
             breweryName.addClass('header')
             breweryName.text(addEventListData.bName)
 
@@ -188,7 +188,7 @@ $('#searchbar-container2').on('submit', function(event) {
     console.log('hello');
     event.preventDefault()
 
-    window.location = 'defaultResults.html'
+    
     breweryData= [];
     $('#brewery-search-list').empty()
     $('#event-search-list').empty()
@@ -204,16 +204,50 @@ $('#searchbar-container2').on('submit', function(event) {
         
         getGeocodeData()
         getEventData()
+        window.location = 'defaultResults.html'
     } else if (saveSearch.match(regexNumber)) {
         localStorage.setItem('savedSearchZip', saveSearch)
         localStorage.setItem('savedSearchBrewery', '')
         localStorage.setItem('savedSearchEvent', '')
         getGeocodeData()
         getEventData()
+        window.location = 'defaultResults.html'
     } else {
         searchValue.val('Please enter a valid city or zip')
     }
 
+} )
+
+$('.searchbar-side').on('submit', function(event) {
+    event.preventDefault()
+    const searchValue2 = $('#searchbar2')
+    
+    breweryData= [];
+    $('#brewery-search-list').empty()
+    $('#event-search-list').empty()
+
+    const saveSearch = searchValue2.val() 
+    const regexNumber = /^[0-9]+$/;
+    // A blank space is intended after a-zA-Z to include space between city names
+    const regexString = /^[a-zA-Z ]+$/;    
+    if (saveSearch.match(regexString) && saveSearch !== 'Please enter a valid city or zip') {
+        localStorage.setItem('savedSearchBrewery', saveSearch)
+        localStorage.setItem('savedSearchEvent', saveSearch)
+        localStorage.setItem('savedSearchZip', '')
+        
+        getGeocodeData()
+        getEventData()
+        window.location = 'defaultResults.html'
+    } else if (saveSearch.match(regexNumber)) {
+        localStorage.setItem('savedSearchZip', saveSearch)
+        localStorage.setItem('savedSearchBrewery', '')
+        localStorage.setItem('savedSearchEvent', '')
+        getGeocodeData()
+        getEventData()
+        window.location = 'defaultResults.html'
+    } else {
+        searchValue2.val('Please enter a valid city or zip')
+    }
 } )
 
 $('#back-to-default-result-page').on('click', function() {
@@ -222,8 +256,13 @@ $('#back-to-default-result-page').on('click', function() {
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('.carousel');
-     M.Carousel.init(elems);
+    var sidenavfunction = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(sidenavfunction);
   });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const elems = document.querySelectorAll('.carousel');
+//      M.Carousel.init(elems);
+//   });
 
 

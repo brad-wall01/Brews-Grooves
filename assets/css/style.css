@@ -129,10 +129,30 @@ body {
     background-color: rgba(180, 180, 180, 0.8);
 }
 
+#searchbar2 {
+    color: white;
+    width: 90%;
+}
 
 @media  screen and (min-width:1921px) {
     #searchbar {
         margin-top: 15rem;
     }
     
+}
+
+@media screen and (max-width: 600px) {
+    #modal1 {
+        width: 400px;
+        text-wrap: wrap;
+    }
+
+    #searchbar {
+        width: 360px;
+    }
+
+    #age-verify {
+        width: 400px;
+        font-size: 1.7rem;
+    }
 }

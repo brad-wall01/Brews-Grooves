@@ -144,3 +144,11 @@ nav {
 .push {
     /* height: 186px; */
 }
+
+@media screen and (max-width: 600px) {
+    .brand-logo {
+        margin: 0;
+        margin-top: 1rem;
+    }
+    
+}
