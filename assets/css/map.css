@@ -53,3 +53,20 @@ body {
   position: relative;
   bottom: 0;
 }
+
+@media screen and (max-width: 600px) {
+  
+  #header h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+ 
+  #brewery-list-brief h4 {
+    font-size: 1.8rem;
+    margin-top: 0.7rem;
+  }
+
+  #pin-icon-brew {
+    margin-top: 0.5rem;
+  }
+}

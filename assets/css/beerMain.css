@@ -50,6 +50,11 @@
     word-wrap: break-word;
 }
 
+#beer-footer {
+    position: relative;
+    bottom: 0;
+}
+
 @media screen and (max-width: 1300px) {
     #event-card {
         width: 450px;
@@ -69,4 +74,24 @@
     
 }
 
+@media screen and (max-width: 600px) {
+    #brew-main-header h3{
+        font-size: 2rem;
+    }
 
+    #brewery-card-container h4 {
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    #event-card-container {
+        height: auto;
+    }
+
+    #event-card {
+        width: 100%;
+    }
+
+}

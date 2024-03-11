@@ -149,10 +149,20 @@ body {
 
     #searchbar {
         width: 360px;
+        margin-top: 3rem;
     }
 
     #age-verify {
-        width: 400px;
+        width: 350px;
         font-size: 1.7rem;
+    }
+
+    #banner {
+        min-height: 150px;
+        
+        h1 {
+            font-size: 3rem;
+        }
+
     }
 }
