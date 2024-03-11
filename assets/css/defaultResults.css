@@ -139,16 +139,39 @@ nav {
     /* flex-direction: column; */
 }
 
-
-
-.push {
-    /* height: 186px; */
-}
-
 @media screen and (max-width: 600px) {
     .brand-logo {
         margin: 0;
-        margin-top: 1rem;
+        margin-top: 2.6rem;
+        line-height: 1  ;
+        
+    }
+
+    nav .brand-logo {
+        font-size: 1.5rem
+    }
+
+    .container .white-text {
+        font-size: 2rem;
     }
     
+    #brewery-search-list .material-icons {
+        font-size: 1rem;
+    }
+
+    #brewery-search-list .collapsible-header {
+        padding-right: 2.5rem;
+        font-size: 1.3rem;
+    }
+    
+    #event-search-list .material-icons {
+        font-size: 1rem;
+    }
+
+    #event-search-list .collapsible-header {
+        padding-right: 2.5rem;
+        font-size: 1.3rem;
+    }
+
+   
 }
